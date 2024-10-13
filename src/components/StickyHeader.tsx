@@ -3,9 +3,9 @@ import { AppBar, Toolbar, Typography, IconButton, Container, Box, InputBase, Too
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { updateSearchText } from '../models/searchModel';
+import { updateSearchText } from '../models/SearchModel';
 
 type StickyHeaderProps = object
 
@@ -14,6 +14,7 @@ const StickyHeader: FunctionComponent<StickyHeaderProps> = () => {
     const [searchText, setSearchText] = useState('');
     const dispatch = useDispatch();
     const location = useLocation();
+    const navigate = useNavigate();
 
     const toggleSearch = () => {
         setSearchVisible(!isSearchVisible);
@@ -27,13 +28,18 @@ const StickyHeader: FunctionComponent<StickyHeaderProps> = () => {
 
     const handleAppClick = () => {
         clearSearch();
+        navigate('/my-movies-app');
+    }
+
+    const handleFavClick = () => {
+        navigate('/my-movies-app/favourites');
     }
 
     return (
         <AppBar position="sticky" className='sticky_header_main'>
             <Toolbar>
                 <Container style={{ display: 'flex', maxWidth: '1920px' }}> 
-                    <Typography variant="h6" onClick={handleAppClick} component={Link} to="/" style={{ color: 'inherit', textDecoration: 'none', marginLeft: '-2rem' }}>
+                    <Typography variant="h6" onClick={handleAppClick} style={{ color: 'inherit', textDecoration: 'none', marginLeft: '-2rem', cursor: 'pointer' }}>
                         My Movies App
                     </Typography>
                     <div style={{ marginLeft: 'auto' }}> 
@@ -61,13 +67,13 @@ const StickyHeader: FunctionComponent<StickyHeaderProps> = () => {
                                 </IconButton>
                             </Box>
                         )}
-                        {!isSearchVisible && location.pathname === '/' && ( 
+                        {!isSearchVisible && location.pathname === '/my-movies-app' && ( 
                             <>
                                 <IconButton edge="end" color="inherit" aria-label="search" onClick={toggleSearch}>
                                     <SearchIcon />
                                 </IconButton>
                                 <Tooltip title="My Favourites" arrow>
-                                    <IconButton color="inherit" href="/favourites">
+                                    <IconButton color="inherit" onClick={handleFavClick}>
                                         <FavoriteIcon sx={{ color: 'red' }} />
                                     </IconButton>
                                 </Tooltip>

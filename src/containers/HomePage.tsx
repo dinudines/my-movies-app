@@ -8,17 +8,18 @@ import Movies from '../components/Movies';
 import MovieCard from '../components/MovieCard';
 
 import debounce from '../utils/debounce';
+import { SearchState } from '../models/SearchModel';
 import '../App.css';
 import '../styles/HomePage.scss';
 
 const HomePage: FunctionComponent = () => {
   const dispatch = useDispatch();
-  const status = useSelector(state => state.search.status);
-  const searchText = useSelector(state => state.search.searchText);
-  const error = useSelector(state => state.search.error);
-  const movies = useSelector(state => state.search.result);
-  const page = useSelector(state => state.search.page);
-  const hasMore = useSelector(state => state.search.hasMore);
+  const status = useSelector((state: SearchState) => state.search.status);
+  const searchText = useSelector((state: SearchState) => state.search.searchText);
+  const error = useSelector((state: SearchState) => state.search.error);
+  const movies = useSelector((state: SearchState) => state.search.result);
+  const page = useSelector((state: SearchState) => state.search.page);
+  const hasMore = useSelector((state: SearchState) => state.search.hasMore);
 
   const debouncedFetchMovies = debounce((dispatch, searchKey: string, page: number) => {
     dispatch(fetchMovies({ searchKey, page }));

@@ -8,8 +8,8 @@ const App = () => {
         <Router>
             <StickyHeader />
             <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/favourites" element={<Favourites />} />
+                <Route path="/my-movies-app/" element={<HomePage />} />
+                <Route path="/my-movies-app/favourites" element={<Favourites />} />
             </Routes>
         </Router>
     );

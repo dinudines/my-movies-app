@@ -1,5 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+export interface SearchState {
+    search: {
+        searchText: string;
+        status: string;
+        error: string;
+        result: Array<any>;
+        page: number;
+        hasMore: boolean;
+    }
+}
+
 const initialState = {
     searchText: "",
     status: 'idle', // idle | loading | succeeded | failed
