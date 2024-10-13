@@ -8,7 +8,7 @@ const App = () => {
         <Router>
             <StickyHeader />
             <Routes>
-                <Route path="/my-movies-app/" element={<HomePage />} />
+                <Route path="/my-movies-app" element={<HomePage />} />
                 <Route path="/my-movies-app/favourites" element={<Favourites />} />
             </Routes>
         </Router>

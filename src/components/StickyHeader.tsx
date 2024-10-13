@@ -28,7 +28,7 @@ const StickyHeader: FunctionComponent<StickyHeaderProps> = () => {
 
     const handleAppClick = () => {
         clearSearch();
-        navigate('/my-movies-app');
+        navigate('/my-movies-app/');
     }
 
     const handleFavClick = () => {
@@ -67,7 +67,7 @@ const StickyHeader: FunctionComponent<StickyHeaderProps> = () => {
                                 </IconButton>
                             </Box>
                         )}
-                        {!isSearchVisible && location.pathname === '/my-movies-app' && ( 
+                        {!isSearchVisible && location.pathname === '/my-movies-app/' && ( 
                             <>
                                 <IconButton edge="end" color="inherit" aria-label="search" onClick={toggleSearch}>
                                     <SearchIcon />
