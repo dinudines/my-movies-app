@@ -67,7 +67,7 @@ const StickyHeader: FunctionComponent<StickyHeaderProps> = () => {
                                 </IconButton>
                             </Box>
                         )}
-                        {!isSearchVisible && location.pathname === '/my-movies-app/' && ( 
+                        {!isSearchVisible && ['/my-movies-app', '/my-movies-app/'].includes(location.pathname) && ( 
                             <>
                                 <IconButton edge="end" color="inherit" aria-label="search" onClick={toggleSearch}>
                                     <SearchIcon />
