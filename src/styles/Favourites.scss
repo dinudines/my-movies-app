@@ -1,0 +1,14 @@
+.movie_card_fav {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+    max-width: 100%;
+}
+
+/* Media queries for laptop screens */
+@media only screen and (min-width: 1024px) and (max-width: 1366px) {
+    .movie_card_fav {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}

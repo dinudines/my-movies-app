@@ -1,0 +1,58 @@
+.movie-card {
+    position: relative;
+    max-width: 365px;
+    overflow: hidden;
+
+    .card-media {
+        position: relative;
+        object-fit: fill;
+
+        &:hover + .hover-content {
+            opacity: 1;
+        }
+    }
+
+    .hover-content {
+        width: 95%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        padding: 0 1rem;
+        pointer-events: none;
+
+        .plot {
+            display: -webkit-box;
+            line-clamp: 4;
+            -webkit-line-clamp: 4; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 1rem;
+        }
+
+        .play-btn {
+            width: 100%;
+            background-color: red;
+            color: white;
+            margin-right: 1rem;
+        }
+    }
+
+    .MuiIconButton-root:focus {
+        outline: none;
+    }
+}
+
+.card-action-area {
+    display: flex;
+    flex-direction: column;
+}
